@@ -11,7 +11,7 @@ module.exports = {
 **Welcome to foupoubot**
 
 __**About**__
-***foupoubot*** was created for the 6̸6̸6̸ legion of the E27 server in the Saint Seiya Awakening mobile game.
+***foupoubot*** was created for the 6̸6̸6̸ legion of the E37 server in the Saint Seiya Awakening mobile game.
 
 It was written by [@ponsfrilus](<https://github.com/ponsfrilus> '@ponsfrilus\'s profile on GitHub') as an open source software. Sources are available on [GitHub](<https://github.com/ponsfrilus/foupoubot> 'foupoubot\'s sources on GitHub').
 

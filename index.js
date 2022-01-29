@@ -26,11 +26,16 @@ for (const file of commandFiles) {
 // When the client is ready, run this code (only once)
 client.once('ready', () => {
 	console.log('Ready!');
+	// Whenever the bot (server) is restarted, re-run the registration of the slash commands
+	// While I'm not sure it is state of the art, it seems to work
     const rest = new REST({ version: '9' }).setToken(token);
+	const Guilds = client.guilds.cache.map(guild => guild.id);
+	for (let guildId of Guilds) {
+		rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: commands })
+			.then(() => console.log('Successfully registered application commands.'))
+			.catch(console.error);
+	}
 
-    rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: commands })
-        .then(() => console.log('Successfully registered application commands.'))
-        .catch(console.error);
 });
 
 client.on("messageCreate", (message) => {
