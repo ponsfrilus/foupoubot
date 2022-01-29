@@ -35,7 +35,6 @@ client.once('ready', () => {
 			.then(() => console.log('Successfully registered application commands.'))
 			.catch(console.error);
 	}
-
 });
 
 client.on("messageCreate", (message) => {

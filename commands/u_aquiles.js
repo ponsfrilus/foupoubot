@@ -7,7 +7,7 @@ const aquiles = [
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('aquiles')
-		.setDescription('Replies with :prout:!'),
+		.setDescription('Aquiles\'s special'),
 	async execute(interaction) {
 		await interaction.reply( `${aquiles[ Math.floor( Math.random() * aquiles.length ) ] }` );
 	},

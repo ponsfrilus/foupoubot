@@ -7,7 +7,7 @@ const charon = [
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('charon')
-		.setDescription('Replies with something!'),
+		.setDescription('Charon\'s special'),
 	async execute(interaction) {
 		await interaction.reply(`${charon[ Math.floor( Math.random() * charon.length ) ] }`);
 	},
