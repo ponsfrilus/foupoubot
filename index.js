@@ -4,7 +4,7 @@ const { Client, Collection, Intents } = require('discord.js');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 const { clientId, guildId, token } = require('./config.json');
-
+const cron = require('node-cron');
 
 // Create a new client instance
 const client = new Client({ 
@@ -35,6 +35,8 @@ client.once('ready', () => {
 			.then(() => console.log('Successfully registered application commands.'))
 			.catch(console.error);
 	}
+
+	client.user.setPresence({ activities: [{ name: 'waiting for orders' }], status: 'idle' });
 });
 
 client.on("messageCreate", (message) => {
@@ -59,3 +61,22 @@ client.on('interactionCreate', async interaction => {
 
 // Login to Discord with your client's token
 client.login(token);
+
+// cron.schedule('* * * * *', async () => {
+// 	console.log('running a task every minute');
+// 	let channels = await client.channels.cache.filter(el => el.type == 'GUILD_TEXT')
+// 	let chan_info = []
+// 	for (const chan of channels) {
+// 		// console.log(chan[1].guild.id) // guild ID
+// 		// console.log(chan[1].id)		  // channel ID
+// 		// console.log(chan[1].name)     // channel name
+// 		if (chan[1].name === 'general') {
+// 			chan_info.push( { guildId: chan[1].guild.id, chanId: chan[1].id, chanName: chan[1].name } )
+// 		}
+// 	}
+// 	for (const dest of chan_info) {
+// 		console.log(dest)
+// 		const channel = await client.channels.fetch(dest.chanId);
+// 		channel.send(`message auto ${JSON.stringify(dest)}`);
+// 	}
+// });

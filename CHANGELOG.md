@@ -1,5 +1,11 @@
 # CHANGELOG
 
+* v1.1.0
+  - Commands files reorganization
+  - Storage file by GuildId
+  - `boobs` and `dick` commands limited once a day
+  - Bot's activity / status defined
+
 * v1.0.2
   - More user's commands added
 
