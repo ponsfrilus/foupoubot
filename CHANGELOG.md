@@ -1,5 +1,10 @@
 # CHANGELOG
 
+* v1.4.0
+  - The whole summary thing has been refactored
+  - The cron will send the summary while one can use `/summary` too
+  - A `/date` command has been added, will come in handy some time
+
 * v1.3.0
   - `summary` command
 
