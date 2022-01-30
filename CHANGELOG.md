@@ -1,5 +1,8 @@
 # CHANGELOG
 
+* v1.3.0
+  - `summary` command
+
 * v1.2.0
   - Refactored with functions helper
 
