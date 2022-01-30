@@ -2,6 +2,7 @@
 
 * v1.1.1
   - `affinity` command limited to once a day
+  - `brain` command that try to analyse your IQ
 
 * v1.1.0
   - Commands files reorganization
