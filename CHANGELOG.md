@@ -1,9 +1,12 @@
 # CHANGELOG
 
+* v1.1.1
+  - `affinity` command limited to once a day
+
 * v1.1.0
   - Commands files reorganization
   - Storage file by GuildId
-  - `boobs` and `dick` commands limited once a day
+  - `boobs` and `dick` commands limited to once a day
   - Bot's activity / status defined
 
 * v1.0.2

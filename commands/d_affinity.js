@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const { saveCmd } = require('../lib/filesHelper');
 
 function randomIntFromInterval(min, max) { // min and max included 
 	return Math.floor(Math.random() * (max - min + 1) + min)
@@ -37,12 +38,18 @@ module.exports = {
 		const caller = interaction.user;
 		const user = interaction.options.getUser('target');
 		const affinity = randomIntFromInterval(0, 100);
+
 		if (caller.username == user.username) {
 			await interaction.reply({ content: `Dear ${interaction.user},\nI have a private confession for to you:\n I DONT'T LIKE NEGATIVE NUMBER YOU BIATCH.\n\nThis incident will be reported!`, ephemeral: true })
 		} else if (user.bot) {
 			await interaction.reply({ content: `I'm sure you like bots, you freak!`, ephemeral: true })
 		} else {
-			await interaction.reply(`${interaction.user}'s affinity with ${user} is ${affinity}% — ${affinitycomments[ Math.floor( Math.random() * affinitycomments.length ) ]}`);
+			let alreadyDoneToday = await saveCmd(interaction.guild, interaction.user, `affinity-with-${user.username}`, affinity);
+			if (alreadyDoneToday) {
+				await interaction.reply({ content: `Sorry, already used my neurons to calculate your affinity with ${user} today. It was ${alreadyDoneToday.value}%.`, ephemeral: true });
+			} else {
+				await interaction.reply(`${interaction.user}'s affinity with ${user} is ${affinity}% — ${affinitycomments[ Math.floor( Math.random() * affinitycomments.length ) ]}`);
+			}
 		}
 	},
 };
