@@ -1,5 +1,8 @@
 # CHANGELOG
 
+* v1.4.1
+  - Fix IQ sorting
+
 * v1.4.0
   - The whole summary thing has been refactored
   - The cron will send the summary while one can use `/summary` too
