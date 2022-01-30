@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const { randFromArray } = require('../lib/fnHelper');
 
 const adjectives = [
 	'a fantastic',
@@ -107,6 +108,6 @@ module.exports = {
 		.addStringOption(option => option.setName('input').setDescription('Enter the drink')),
 	async execute(interaction) {
 		const drink = interaction.options.getString('input') || 'drink';
-		await interaction.reply( `${interaction.user} is having ${adjectives[ Math.floor( Math.random() * adjectives.length ) ]} ${drink}. ${cheers[ Math.floor( Math.random() * cheers.length ) ]} ${emojis[ Math.floor( Math.random() * emojis.length ) ]}!` );
+		await interaction.reply( `${interaction.user} is having ${randFromArray(adjectives)} ${drink}. ${randFromArray(cheers)} ${randFromArray(emojis)}!` );
 	},
 };

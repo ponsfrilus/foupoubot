@@ -1,9 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { saveCmd } = require('../lib/filesHelper');
-
-function randomIntFromInterval(min, max) { // min and max included 
-	return Math.floor(Math.random() * (max - min + 1) + min)
-}
+const { randomIntFromInterval } = require('../lib/fnHelper');
 
 module.exports = {
 	data: new SlashCommandBuilder()

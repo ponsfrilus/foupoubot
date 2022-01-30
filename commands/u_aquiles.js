@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const { randFromArray } = require('../lib/fnHelper');
 
 const aquiles = [
 	'Ja n\'estic fins als collons de\'n Seiya rc',
@@ -9,6 +10,6 @@ module.exports = {
 		.setName('aquiles')
 		.setDescription('Aquiles\'s special'),
 	async execute(interaction) {
-		await interaction.reply( `${aquiles[ Math.floor( Math.random() * aquiles.length ) ] }` );
+		await interaction.reply( `${randFromArray(aquiles)}` );
 	},
 };

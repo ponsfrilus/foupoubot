@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { saveCmd } = require('../lib/filesHelper');
+const { randFromArray } = require('../lib/fnHelper');
 
 const dicks = [
 	'8D',
@@ -18,7 +19,7 @@ module.exports = {
 		.setName('dick')
 		.setDescription('Replies with a dick!'),
 	async execute(interaction) {
-		let dick = dicks[ Math.floor( Math.random() * dicks.length ) ];
+		let dick = randFromArray(dicks);
 		let alreadyDoneToday = await saveCmd(interaction.guild, interaction.user, 'dick', dick);
 		if (alreadyDoneToday) {
 			await interaction.reply({ content: `Sorry, enough of boner for today, you already got \`${alreadyDoneToday.value}\` !`, ephemeral: true });

@@ -1,5 +1,8 @@
 # CHANGELOG
 
+* v1.2.0
+  - Refactored with functions helper
+
 * v1.1.1
   - `affinity` command limited to once a day
   - `brain` command that try to analyse your IQ

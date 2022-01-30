@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const { randFromArray } = require('../lib/fnHelper');
 
 const charon = [
 	'❤️‍🔥',
@@ -9,6 +10,6 @@ module.exports = {
 		.setName('charon')
 		.setDescription('Charon\'s special'),
 	async execute(interaction) {
-		await interaction.reply(`${charon[ Math.floor( Math.random() * charon.length ) ] }`);
+		await interaction.reply(`${randFromArray(charon)}`);
 	},
 };

@@ -1,9 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { saveCmd } = require('../lib/filesHelper');
-
-function randomIntFromInterval(min, max) { // min and max included 
-	return Math.floor(Math.random() * (max - min + 1) + min)
-}
+const { randomIntFromInterval, randFromArray } = require('../lib/fnHelper');
 
 const affinitycomments = [
 	'it\'s amazing !',
@@ -48,7 +45,7 @@ module.exports = {
 			if (alreadyDoneToday) {
 				await interaction.reply({ content: `Sorry, already used my neurons to calculate your affinity with ${user} today. It was ${alreadyDoneToday.value}%.`, ephemeral: true });
 			} else {
-				await interaction.reply(`${interaction.user}'s affinity with ${user} is ${affinity}% — ${affinitycomments[ Math.floor( Math.random() * affinitycomments.length ) ]}`);
+				await interaction.reply(`${interaction.user}'s affinity with ${user} is ${affinity}% — ${randFromArray(affinitycomments)}`);
 			}
 		}
 	},
