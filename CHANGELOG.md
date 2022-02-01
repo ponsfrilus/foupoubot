@@ -1,5 +1,8 @@
 # CHANGELOG
 
+* v1.4.2
+  - `/youngboy` command
+
 * v1.4.1
   - Fix IQ sorting
 
